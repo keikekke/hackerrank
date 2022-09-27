@@ -23,9 +23,12 @@ go fmt $DIRNAME/*.go
 
 # Run with input
 out=$(cat $DIRNAME/$INPUT | go run $DIRNAME/*.go)
+echo "$out"
 
 # Compare the result
 if [[ $out != $(cat $DIRNAME/$OUTPUT) ]]; then
+  echo ""
+  echo "------- DIFF -------"
   diff $DIRNAME/$OUTPUT <(echo "$out") # using process substitution
   exit 1
 fi
