@@ -11,12 +11,14 @@ interface AdvancedArithmetic{
 
 class Calculator implements AdvancedArithmetic {
     public int divisorSum(int n) {
-        if (n == 1) return 1;
-
         int ret = 0;
         for (int i = 1; i*i <= n; i++) {
             if (n % i == 0) {
-                ret += i + (n / i); // assuming i != (n/i)
+                if (i != n / i) {
+                    ret += i + (n / i);
+                } else {
+                    ret += i;
+                }
             }
         }
         return ret;
