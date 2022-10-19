@@ -3,7 +3,6 @@
 // so I chose Java instead for learning.
 
 import java.util.*;
-import java.io.*;
 
 class Node {
     Node left, right;
@@ -43,14 +42,15 @@ class Solution {
     }
 
     public static void main(String args[]) {
-        Scanner sc = new Scanner(System.in);
-        int T = sc.nextInt();
-        Node root = null;
-        while (T-- > 0) {
-            int data = sc.nextInt();
-            root = insert(root, data);
+        try (Scanner sc = new Scanner(System.in)) {
+            int T = sc.nextInt();
+            Node root = null;
+            while (T-- > 0) {
+                int data = sc.nextInt();
+                root = insert(root, data);
+            }
+            int height = getHeight(root);
+            System.out.println(height);
         }
-        int height = getHeight(root);
-        System.out.println(height);
     }
 }

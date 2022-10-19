@@ -2,17 +2,16 @@
 // and I'm bored with Python, which I'm already familiar with,
 // so I chose Java instead for learning.
 
-import java.io.*;
 import java.util.*;
 
-interface AdvancedArithmetic{
-   int divisorSum(int n);
+interface AdvancedArithmetic {
+    int divisorSum(int n);
 }
 
 class Calculator implements AdvancedArithmetic {
     public int divisorSum(int n) {
         int ret = 0;
-        for (int i = 1; i*i <= n; i++) {
+        for (int i = 1; i * i <= n; i++) {
             if (n % i == 0) {
                 if (i != n / i) {
                     ret += i + (n / i);
@@ -32,9 +31,9 @@ public class Solution {
         int n = scan.nextInt();
         scan.close();
 
-      	AdvancedArithmetic myCalculator = new Calculator();
+        AdvancedArithmetic myCalculator = new Calculator();
         int sum = myCalculator.divisorSum(n);
-        System.out.println("I implemented: " + myCalculator.getClass().getInterfaces()[0].getName() );
+        System.out.println("I implemented: " + myCalculator.getClass().getInterfaces()[0].getName());
         System.out.println(sum);
     }
 }
